@@ -14,20 +14,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
-    public Flux<ProductDTO> getProducts(){
-        return productService.getProducts();
-    }
-
-    @GetMapping("/{id}")
-    public Mono<ProductDTO> getProduct(@PathVariable String id){
-        return productService.getProduct(id);
-    }
-
-    @GetMapping("/product-range")
-    public Flux<ProductDTO> getProductBetweenRange(@RequestParam("min") double min, @RequestParam("max")double max){
-        return productService.getProductsRange(min,max);
-    }
 
     @PostMapping
     public Mono<ProductDTO> saveProduct(@RequestBody Mono<ProductDTO> productDtoMono){
@@ -43,5 +29,23 @@ public class ProductController {
     public Mono<Void> deleteProduct(@PathVariable String id){
         return productService.deleteProduct(id);
     }
+
+
+    @GetMapping
+    public Flux<ProductDTO> getProducts(){
+        return productService.getProducts();
+    }
+
+    @GetMapping("/{id}")
+    public Mono<ProductDTO> getProduct(@PathVariable String id){
+        return productService.getProduct(id);
+    }
+
+    @GetMapping("/product-range")
+    public Flux<ProductDTO> getProductBetweenRange(@RequestParam("min") double min, @RequestParam("max")double max){
+        return productService.getProductsRange(min,max);
+    }
+
+
 
 }

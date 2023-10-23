@@ -1,0 +1,37 @@
+*------------------------------*
+-                              -
+-           Note               -
+-                              -
+*------------------------------*
+
+
+
+🤔 Spring WebFlux Overview 🤔
+
+   ◾ Spring WebFlux is a reactive web framework introduced in Spring Framework 5.
+   ◾ Spring WebFlux is the first step towards reactive programming model in spring framework.
+   ◾ It is designed to provide a reactive programming model for building web applications and APIs using Spring.
+   ◾ Spring WebFlux is built on top of Project Reactor, which is a popular reactive programming library for the JVM.
+   ◾ Spring WebFlux has supported Tomcat, Jetty, and Servlet 3.1+ containers, as well as on non-Servlet runtimes such as Netty and Undertow.
+
+Reactor provides two types:
+📌 Mono: implements Publisher and returns 0 or 1 elements
+📌 Flux: implements Publisher and returns N elements.
+
+
+🤔 Spring WebFlux Handler
+        Spring WebFlux Handler method handles the request and returns Mono or Flux as response.
+
+🤔 Spring WebFlux Router
+    Router method are used to define routes for the application.
+    These methods return RouterFunction object that also holds ServerResponse body.
+
+
+Publisher ---> interface
+    |
+    v
+CorePublisher ---> interface
+    |
+    v
+Mono  //  Flux  ---------> abstract
+
