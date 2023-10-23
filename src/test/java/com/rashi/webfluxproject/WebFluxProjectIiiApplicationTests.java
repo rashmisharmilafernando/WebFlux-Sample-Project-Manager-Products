@@ -15,6 +15,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -85,6 +86,16 @@ class WebFluxProjectIiiApplicationTests {
               .body(Mono.just(productDTOMono),ProductDTO.class)
               .exchange()
               .expectStatus().isOk();
+  }
+    @Test
+  public void deleteProductTest(){
+    given(productService.deleteProduct(any())).willReturn(Mono.empty());
+
+
+    webTestClient.delete()
+            .uri("/products/delete/102")
+            .exchange()
+            .expectStatus().isOk();
   }
 
 
